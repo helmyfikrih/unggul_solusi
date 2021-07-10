@@ -388,6 +388,12 @@ function addForm() {
 							</select>
 						</div>
 					</div>
+					<div class="col-sm-4">
+						<div class="form-group">
+							<label>Keterangan Barang</label>
+							<input type="text" name="keterangan_barang[]" data-id_row="${x}" id="keterangan_barang_${x}" class="form-control" placeholder="keterangan Barang" readonly>
+						</div>
+					</div>
 					<div class="col-sm-3">
 						<div class="form-group">
 							<label>Harga</label>
@@ -439,6 +445,7 @@ $(wrapper).on("click", ".remove_button", function (e) {
 $(wrapper).on("change", ".select_barang", function (e) {
 	e.preventDefault();
 	var row_id = $(this).attr("data-id_row");
+	var keterangan = $(this).attr("data-keterangan");
 	var is_added = (function () {
 		var is_added = false;
 		var curr_id = $(`#id_barang_${row_id}`).val();
@@ -462,6 +469,8 @@ $(wrapper).on("change", ".select_barang", function (e) {
 		});
 		return;
 	}
+	
+	var keterangan = "";
 	var harga = (function () {
 		var harga = 0;
 		jQuery.ajax({
@@ -476,6 +485,7 @@ $(wrapper).on("change", ".select_barang", function (e) {
 			success: function (res) {
 				if (res.data) {
 					harga = res.data.harga;
+					keterangan = res.data.keterangan;
 				}
 			},
 			error: function (xhr, status, error) {
@@ -485,6 +495,7 @@ $(wrapper).on("change", ".select_barang", function (e) {
 		return harga;
 	})();
 	$(`#harga_barang_${row_id}`).val(harga);
+	$(`#keterangan_barang_${row_id}`).val(keterangan);
 });
 
 $(wrapper).on("change", ".qty", function (e) {

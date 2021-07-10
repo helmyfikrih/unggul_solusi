@@ -39,6 +39,7 @@
 										<th>Action</th>
 										<th>Kode</th>
 										<th>Nama</th>
+										<th>Keterangan</th>
 										<th>Kategori</th>
 										<th>Harga</th>
 									</tr>
@@ -72,6 +73,13 @@
 									<label>Nama</label>
 									<input type="text" name="kode" id="kode" class="form-control" placeholder="kode" hidden>
 									<input type="text" name="nama" id="nama" class="form-control" placeholder="Nama">
+								</div>
+							</div>
+							<div class="col-sm-6">
+								<!-- text input -->
+								<div class="form-group">
+									<label>Keterangan</label>
+									<input type="text" name="keterangan" id="keterangan" class="form-control" placeholder="Keterangan">
 								</div>
 							</div>
 							<div class="col-sm-6">

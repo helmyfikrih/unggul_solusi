@@ -182,12 +182,12 @@ function view(e) {
 								<td>${e[0].nama}</td>
 							</tr>
 							<tr>
-								<th>Domisili:</th>
-								<td>${e[0].domisili}</td>
+								<th>Kategiru:</th>
+								<td>${e[0].kategori}</td>
 							</tr>
 							<tr>
-								<th>Jenis Kelamin:</th>
-								<td>${e[0].jenis_kelamin}</td>
+								<th>Keterangan:</th>
+								<td>${e[0].keterangan ? e[0].keterangan : '-'}</td>
 							</tr>
 						</tbody>
 					</table>
@@ -236,10 +236,12 @@ function edit(e) {
 		url: `${base_url}data_barang/getOne`,
 		dataType: "json",
 		success: function (e) {
-			jQuery("#id_Barang").val(e[0].id_Barang);
+			console.log(e);
+			jQuery("#kode").val(e[0].kode);
 			jQuery("#nama").val(e[0].nama);
-			jQuery("#jenis_kelamin").val(e[0].jenis_kelamin).trigger("change");
-			jQuery("#domisili").val(e[0].domisili).trigger("change");
+			jQuery("#keterangan").val(e[0].keterangan);
+			jQuery("#kategori").val(e[0].kategori).trigger("change");
+			jQuery("#harga").val(e[0].harga).trigger("change");
 		},
 		error: function (xhr, status, error) {
 			Swal.fire({ title: "Error", text: error, icon: "error" });

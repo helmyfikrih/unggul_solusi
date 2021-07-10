@@ -95,9 +95,15 @@
 											<select name="id_barang[]" id="id_barang_0" data-id_row="0" class="form-control select2bs4 select_barang select-form" style="width: 100%;">
 												<option></option>
 												<?php foreach ($data_barang as $barang) : ?>
-													<option value="<?= $barang['kode'] ?>"><?= $barang['nama'] ?></option>
+													<option data-keterangan="<?=$barang['keterangan']?>" value="<?= $barang['kode'] ?>"><?= $barang['nama'] ?></option>
 												<?php endforeach; ?>
 											</select>
+										</div>
+									</div>
+									<div class="col-sm-4">
+										<div class="form-group">
+											<label>Keterangan Barang</label>
+											<input type="text" name="keterangan_barang[]" data-id_row="0" id="keterangan_barang_0" class="form-control" placeholder="keterangan Barang" readonly>
 										</div>
 									</div>
 									<div class="col-sm-3">

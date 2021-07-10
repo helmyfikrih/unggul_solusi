@@ -79,6 +79,7 @@ class Data_barang extends CI_Controller
             $row[] = $btn;
             $row[] = $field->kode;
             $row[] = $field->nama;
+            $row[] = $field->keterangan;
             $row[] = $field->kategori;
             $row[] = $field->harga;
             $data[] = $row;
@@ -99,10 +100,12 @@ class Data_barang extends CI_Controller
     {
         $kode = $this->input->post('kode');
         $nama = $this->input->post('nama');
+        $keterangan = $this->input->post('keterangan');
         $kategori = $this->input->post('kategori');
         $harga = $this->input->post('harga');
         $data['pelanggan'] = array(
             "nama" => $nama,
+            "keterangan" => $keterangan,
             "kategori" => $kategori,
             "harga" => $harga,
         );
